@@ -91,10 +91,6 @@ export default function DataTable() {
     setDialogOpen(true)
   }
 
-  const setChangeData = (target) => {
-    setAnchorEl(target)
-  }
-
   const handleEdit = () => {
     setTitle('Edit Godown values')
     setDialogOpen(true)
@@ -107,8 +103,8 @@ export default function DataTable() {
   };
 
   const deleteRow = () =>{
-    setRows(rows.filter(item => item.id != selectedRow.id))
-    setCopy(rows.filter(item => item.id != selectedRow.id))
+    setRows(rows.filter(item => item.id !== selectedRow.id))
+    setCopy(rows.filter(item => item.id !== selectedRow.id))
     setDeleteConfirmation(false)
   }
 
@@ -139,6 +135,7 @@ export default function DataTable() {
   }
 
   const getBackNewdata = (newData) =>{
+    console.log(newData)
     let newDataObj;
     if(selectedRow){
         newDataObj = rows.map(item=>{
@@ -153,12 +150,14 @@ export default function DataTable() {
         setCopy([...newDataObj])
     }
     else{
-        newDataObj = {...rows[1],id:'abc',godown2:newData.godown2,godown3:newData.godown3,email:newData.email,phone:newData.phone,zipCode:newData.zipCode,godown4:newData.godown4,gstin:newData.gstin}
+        dummyId = dummyId++
+        newDataObj = {...rows[1],id:dummyId,godown1: dummyId++ ,godown2:newData.godown2,godown3:newData.godown3,email:newData.email,phone:newData.phone,zipCode:newData.zipCode,godown4:newData.godown4,gstin:newData.gstin}
         let newArr = [...rows]
         newArr.push(newDataObj)
         console.log(newArr)
         setRows(newArr)
         setCopy([...newArr])
+
     }
   }
 

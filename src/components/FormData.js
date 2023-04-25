@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import { useForm } from "react-hook-form";
 import { Dialog,Button,InputAdornment,Input,MenuItem } from '@mui/material';
 import { ErrorMessage } from '@hookform/error-message';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import CloseIcon from '@mui/icons-material/Close';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -66,10 +66,10 @@ const useStyles = createUseStyles({
 function FormData({ open, data ,close, title, getBackNewdata}) {
     const classes = useStyles()
     const [incharge, setIncharge] = useState(data.godown4)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({mode: "onChange"});
+    const { register, handleSubmit, formState: { errors } } = useForm({mode: "onChange"});
 
     const onSubmit = values => {
-        getBackNewdata(values);
+        getBackNewdata({...values,godown4:incharge});
         close();
     };
 

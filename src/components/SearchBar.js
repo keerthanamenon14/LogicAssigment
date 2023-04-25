@@ -8,7 +8,6 @@ const InputStyle = {
 }
 
 function SearchBar({data, setFilter}) {
-  const dataCopy = data;
   return (
     <div>
         <OutlinedInput
