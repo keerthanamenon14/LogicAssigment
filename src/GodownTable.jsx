@@ -62,7 +62,7 @@ export default function DataTable() {
       field: 'email',
       headerName: 'Email',
       sortable: false,
-      width: 160
+      width: 180
     },
     {
       field: 'options',
@@ -185,7 +185,6 @@ export default function DataTable() {
             boxShadow: 2,
             '& .MuiDataGrid-columnHeaders':{
                 backgroundColor:'#c1c6c7',
-                border: '1px solid grey'
             },
             '& .MuiDatagrid-columnHeaderTitle':{
                 fontWeight: 'bold !important'
